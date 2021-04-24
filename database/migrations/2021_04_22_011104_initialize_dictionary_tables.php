@@ -63,6 +63,7 @@ class InitializeDictionaryTables extends Migration
         DB::table('groups')->insert(
             [
                 ['name' => 'amphibian'],
+                ['name' => 'anatomy'],
                 ['name' => 'animal'],
                 ['name' => 'appliance'],
                 ['name' => 'architecture'],
@@ -73,7 +74,6 @@ class InitializeDictionaryTables extends Migration
                 ['name' => 'bedroom'],
                 ['name' => 'biology'],
                 ['name' => 'bird'],
-                ['name' => 'body'],
                 ['name' => 'botany'],
                 ['name' => 'building'],
                 ['name' => 'business'],
