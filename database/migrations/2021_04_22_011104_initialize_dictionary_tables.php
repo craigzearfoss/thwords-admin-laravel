@@ -115,6 +115,7 @@ class InitializeDictionaryTables extends Migration
                 ['name' => 'mammal'],
                 ['name' => 'math'],
                 ['name' => 'meat'],
+                ['name' => 'military'],
                 ['name' => 'music'],
                 ['name' => 'musical instrument'],
                 ['name' => 'nationality'],
