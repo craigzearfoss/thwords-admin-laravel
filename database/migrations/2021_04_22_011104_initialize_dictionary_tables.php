@@ -110,6 +110,7 @@ class InitializeDictionaryTables extends Migration
                 ['name' => 'internet'],
                 ['name' => 'kitchen'],
                 ['name' => 'language'],
+                ['name' => 'legal'],
                 ['name' => 'leisure'],
                 ['name' => 'lizard'],
                 ['name' => 'mammal'],
