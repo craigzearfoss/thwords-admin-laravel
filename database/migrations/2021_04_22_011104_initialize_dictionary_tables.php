@@ -141,6 +141,7 @@ class InitializeDictionaryTables extends Migration
                 ['name' => 'sports'],
                 ['name' => 'tennis'],
                 ['name' => 'time'],
+                ['name' => 'tool'],
                 ['name' => 'transportation'],
                 ['name' => 'travel'],
                 ['name' => 'tree'],
