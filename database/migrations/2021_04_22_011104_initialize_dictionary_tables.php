@@ -37,13 +37,13 @@ class InitializeDictionaryTables extends Migration
             ]
         );
 
-        // create the genders table
-        Schema::create('genders', function (Blueprint $table) {
+        // create the word_genders table
+        Schema::create('word_genders', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('abbrev');
         });
-        DB::table('genders')->insert(
+        DB::table('word_genders')->insert(
             [
                 ['id' => 1, 'name' => 'n/a', 'abbrev' => ''],
                 ['id' => 2, 'name' => 'masculine', 'abbrev' => 'm'],
@@ -52,12 +52,12 @@ class InitializeDictionaryTables extends Migration
             ]
         );
 
-        // create the groups table
-        Schema::create('groups', function (Blueprint $table) {
+        // create the word_groups table
+        Schema::create('word_groups', function (Blueprint $table) {
             $table->id();
             $table->string('name');
         });
-        DB::table('groups')->insert(
+        DB::table('word_groups')->insert(
             [
                 ['name' => 'amphibian'],
                 ['name' => 'anatomy'],
@@ -320,7 +320,6 @@ class InitializeDictionaryTables extends Migration
                 $table->string('definition');
                 $table->string('definition2');
                 $table->string('regions');
-                $table->string('verb_id');
                 $table->index('word');
                 $table->index('plural');
                 $table->unsignedBigInteger('verb_id');
@@ -328,8 +327,8 @@ class InitializeDictionaryTables extends Migration
                 $table->timestamps();
                 $table->foreign('word_id')->references('id')->on($lang . '_words');
                 $table->foreign('part_of_speech_id')->references('id')->on('parts_of_speech');
-                $table->foreign('gender_id')->references('id')->on('genders');
-                $table->foreign('plural_gender_id')->references('id')->on('genders');
+                $table->foreign('gender_id')->references('id')->on('word_genders');
+                $table->foreign('plural_gender_id')->references('id')->on('word_genders');
                 $table->foreign('verb_id')->references('id')->on($lang . '_verbs');
                 $table->foreign('verb_form_id')->references('id')->on('verb_forms');
             });
@@ -340,7 +339,7 @@ class InitializeDictionaryTables extends Migration
                 $table->unsignedBigInteger('word_id');
                 $table->unsignedBigInteger('group_id');
                 $table->foreign('word_id')->references('id')->on($lang . '_dictionary');
-                $table->foreign('group_id')->references('id')->on('groups');
+                $table->foreign('group_id')->references('id')->on('word_groups');
             });
         }
     }
@@ -358,8 +357,8 @@ class InitializeDictionaryTables extends Migration
         Schema::dropIfExists('verb_moods');
         Schema::dropIfExists('verb_aspects');
         Schema::dropIfExists('verb_times');
-        Schema::dropIfExists('groups');
-        Schema::dropIfExists('genders');
+        Schema::dropIfExists('word_groups');
+        Schema::dropIfExists('word_genders');
         Schema::dropIfExists('parts_of_speech');
         Schema::dropIfExists('verb_forms');
         foreach ($this->langs as $lang) {
