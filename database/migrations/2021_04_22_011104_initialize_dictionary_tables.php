@@ -351,6 +351,13 @@ class InitializeDictionaryTables extends Migration
      */
     public function down()
     {
+        foreach ($this->langs as $lang) {
+            Schema::dropIfExists('dictionary_' . $lang);
+            Schema::dropIfExists('word_group_' . $lang);
+            Schema::dropIfExists('words_' . $lang);
+            Schema::dropIfExists('verbs_' . $lang);
+        }
+        Schema::dropIfExists('verb_forms');
         Schema::dropIfExists('verbs');
         Schema::dropIfExists('verb_types');
         Schema::dropIfExists('verb_categories');
@@ -360,12 +367,5 @@ class InitializeDictionaryTables extends Migration
         Schema::dropIfExists('word_groups');
         Schema::dropIfExists('word_genders');
         Schema::dropIfExists('parts_of_speech');
-        Schema::dropIfExists('verb_forms');
-        foreach ($this->langs as $lang) {
-            Schema::dropIfExists('word_group_' . $lang);
-            Schema::dropIfExists('dictionary_' . $lang);
-            Schema::dropIfExists('words_' . $lang);
-            Schema::dropIfExists('verbs_' . $lang);
-        }
     }
 }
