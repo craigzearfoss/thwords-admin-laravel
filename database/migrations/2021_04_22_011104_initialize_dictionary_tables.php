@@ -163,7 +163,8 @@ class InitializeDictionaryTables extends Migration
                 ['id' => 4, 'name' => 'intransitive', 'abbrev' => 'int', 'definition' => 'A verb that does not allow a direct object.'],
                 ['id' => 5, 'name' => 'pronominal', 'abbrev' => 'pron', 'definition' => 'A verb that is accompanied by a reflexive pronoun.'],
                 ['id' => 6, 'name' => 'reflexive', 'abbrev' => 'ref', 'definition' => 'Loosely, a verb whose direct object is the same as its subject.'],
-                ['id' => 7, 'name' => 'transitive', 'abbrev' => 'tran', 'definition' => 'A verb that accepts one or more objects.']
+                ['id' => 7, 'name' => 'reciprocal', 'abbrev' => 'ref', 'definition' => 'A type of pronominal verb used to express the idea of reciprocity – doing something to each other.'],
+                ['id' => 8, 'name' => 'transitive', 'abbrev' => 'tran', 'definition' => 'A verb that accepts one or more objects.']
             ]
         );
 
